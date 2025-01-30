@@ -22,7 +22,7 @@ function Complaints() {
   let randomLoader = Math.floor(Math.random() * 8);
   useEffect(() => {
     axios
-      .get("http://localhost:3000/complaint")
+      .get("https://cleanhood.onrender.com/complaint")
       .then((res) => {
         setData(res.data);
         //console.log(res.data);

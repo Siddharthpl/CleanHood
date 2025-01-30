@@ -41,7 +41,7 @@ export default function Signup() {
     formState: { errors },
   } = useForm();
   useEffect(() => {
-    axios.get("http://localhost:3000/society").then((res) => {
+    axios.get("https://cleanhood.onrender.com/society").then((res) => {
       // console.log(res.data)
       setSociety(res.data);
     });
@@ -74,7 +74,7 @@ export default function Signup() {
     const id = toast.loading("Signing Up...");
     setTimeout(() => {
       axios
-        .post("http://localhost:3000/user/signup", signupData)
+        .post("https://cleanhood.onrender.com/user/signup", signupData)
         .then((result) => {
           // console.log(result.data);
           setCookie("username", signupData.username, 365);

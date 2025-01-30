@@ -23,7 +23,7 @@ export default function SocietyRegister() {
     const id = toast.loading("Adding society..");
     setTimeout(() => {
       axios
-        .post("http://localhost:3000/society/new", formData)
+        .post("https://cleanhood.onrender.com/society/new", formData)
         .then((result) => {
           // console.log("ADDED");
           toast.update(id, {

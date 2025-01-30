@@ -29,7 +29,7 @@ export default function Complaint() {
   const categories = ["Industrial", "Event", "Societal Waste", "Others"];
   useEffect(() => {
     axios
-      .get("http://localhost:3000/cities/")
+      .get("https://cleanhood.onrender.com/cities/")
       .then((res) => {
         // console.log(res.data);
         setCities(res.data);
@@ -121,7 +121,7 @@ export default function Complaint() {
     // console.log(finalCity.supportEmail)
     const id = toast.loading("Registering Complaint...");
     axios
-      .post("http://localhost:3000/complaint/new", comp)
+      .post("https://cleanhood.onrender.com/complaint/new", comp)
       .then(() => {
         toast.update(id, {
           render: "Complaint Registered!",

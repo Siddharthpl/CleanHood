@@ -58,7 +58,7 @@ async function main() {
 
     // Insert cities data
     await Cities.insertMany(citiesData);
-    console.log("Data Added");
+    // console.log("Data Added");
 
   } catch (err) {
     console.error("Error:", err);

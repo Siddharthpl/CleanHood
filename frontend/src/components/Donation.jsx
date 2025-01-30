@@ -47,7 +47,7 @@ export default function Donation() {
   const [key, setKey] = useState("");
   useEffect(() => {
     axios
-      .get("http://localhost:3000/pay/getkey")
+      .get("https://cleanhood.onrender.com/pay/getkey")
       .then((res) => {
         // console.log(res);
         setKey(res.data.key);
@@ -59,7 +59,7 @@ export default function Donation() {
   const FormSubmitHandler = (formData) => {
     // console.log(formData);
     axios
-      .post("http://localhost:3000/pay/checkout", formData)
+      .post("https://cleanhood.onrender.com/pay/checkout", formData)
       .then((res) => {
         // console.log(res.data.order);
         const options = {

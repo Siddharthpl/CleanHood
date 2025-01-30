@@ -38,7 +38,7 @@ export default function Listings() {
   useEffect(() => {
     setTimeout(() => {
       axios
-        .get("http://localhost:3000/society")
+        .get("https://cleanhood.onrender.com/society")
         .then((data) => {
           // console.log(data.data);
           setPosts(data.data);

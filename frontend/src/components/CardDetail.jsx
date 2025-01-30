@@ -42,7 +42,7 @@ export default function CardDetail() {
   useEffect(() => {
     setTimeout(() => {
       axios
-        .get(`http://localhost:3000/society/details/${id}`)
+        .get(`https://cleanhood.onrender.com/society/details/${id}`)
         .then((res) => {
           // console.log(res.data);
           setSocietyData(res.data.societyData);
