@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Post({ data, onClick }) {
   const navigate = useNavigate();
-  console.log("data", data);
+  // console.log("data", data);
 
   const handlePostClick = () => {
     onClick(data);

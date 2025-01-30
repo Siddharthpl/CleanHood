@@ -43,7 +43,6 @@ export default function Navbar() {
           <MenuItem icon={<TbLogin2 />}>Login / Signup</MenuItem>
         </Link>
       );
-
     }
   };
 
@@ -95,7 +94,6 @@ export default function Navbar() {
     }
   };
 
-
   useEffect(() => {
     function handleResize() {
       setIsMobile(window.innerWidth < 800);
@@ -113,8 +111,7 @@ export default function Navbar() {
         <div className="nav-parent-2 flex">
           <div className="nav-logo">
             <Link to="/">
-              <div className="title-nav">WasteX</div>
-
+              <div className="title-nav">CleanHood</div>
             </Link>
           </div>
           <div className="nav-options flex">
@@ -130,7 +127,6 @@ export default function Navbar() {
                   sx={{
                     borderColor: "transparent",
                   }} // Set border color to transparent
-
                 />
                 <MenuList>
                   <Link to="/complaint">
@@ -148,8 +144,6 @@ export default function Navbar() {
                       Incentives
                     </MenuItem>
                   </Link>
-
-                 
 
                   <Link to="/about">
                     <MenuItem icon={<RiTeamFill />}>About Us</MenuItem>
@@ -178,7 +172,6 @@ export default function Navbar() {
                   >
                     Services
                   </MenuButton>
-
 
                   <MenuList>
                     <Link to="/complaint">
@@ -212,7 +205,6 @@ export default function Navbar() {
                         <span>Existing Complaints</span>
                       </MenuItem>
                     </Link>
-
                   </MenuList>
                 </Menu>
 
@@ -239,10 +231,7 @@ export default function Navbar() {
                   </Link>
                 </Menu>
 
-                
-
                 <Menu>{loginBtn2()}</Menu>
-
               </>
             )}
           </div>

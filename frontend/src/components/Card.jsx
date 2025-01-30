@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 export default function Card({ data }) {
   const navigate = useNavigate();
   let [like, setLike] = useState(false);
-  console.log("data", data);
+  
   const cardClick = () => {
     navigate(`/incentive/society/${data._id}`);
   };

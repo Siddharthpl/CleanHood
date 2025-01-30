@@ -42,9 +42,9 @@ export default function CardDetail() {
   useEffect(() => {
     setTimeout(() => {
       axios
-        .get(`https://waste-x-gamma.vercel.app/society/details/${id}`)
+        .get(`http://localhost:3000/society/details/${id}`)
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           setSocietyData(res.data.societyData);
           setResidentsData(res.data.residentsData); // Assuming users data is what you're getting for residents
         })
@@ -59,8 +59,8 @@ export default function CardDetail() {
     }, 100);
   }, [id]); // Adding id as a dependency to re-fetch data when id changes
 
-  console.log(societyData);
-  console.log(residentsData);
+  // console.log(societyData);
+  // console.log(residentsData);
 
   return (
     <div id="listings-parent">

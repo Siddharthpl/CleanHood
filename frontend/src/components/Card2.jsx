@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Card2({ data }) {
   const navigate = useNavigate();
-  console.log("data", data);
+  // console.log("data", data);
   return (
     <Box
       border="green 3px solid"

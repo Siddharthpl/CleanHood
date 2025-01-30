@@ -47,9 +47,9 @@ export default function Donation() {
   const [key, setKey] = useState("");
   useEffect(() => {
     axios
-      .get("https://waste-x-gamma.vercel.app/pay/getkey")
+      .get("http://localhost:3000/pay/getkey")
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setKey(res.data.key);
       })
       .catch((err) => {
@@ -57,11 +57,11 @@ export default function Donation() {
       });
   }, []);
   const FormSubmitHandler = (formData) => {
-    console.log(formData);
+    // console.log(formData);
     axios
-      .post("https://waste-x-gamma.vercel.app/pay/checkout", formData)
+      .post("http://localhost:3000/pay/checkout", formData)
       .then((res) => {
-        console.log(res.data.order);
+        // console.log(res.data.order);
         const options = {
           key,
           amount: formData.amount,
@@ -70,7 +70,7 @@ export default function Donation() {
           description: "Donation",
           image: "",
           order_id: res.data.order.id,
-          callback_url: "https://wastex-x.vercel.app/",
+          callback_url: "https://CleanHood-x.vercel.app/",
           prefill: {
             name: "",
             email: "",
@@ -101,16 +101,24 @@ export default function Donation() {
           <div className="donation-text">
             Why Not Contribute With a small Donation!!
           </div>
-          <form className="donation-form" onSubmit={handleSubmit(FormSubmitHandler)}>
-          <Input
-            type="number"
-            placeholder="Enter amount of your choice"
-            borderColor="#D0D5FA"
-            {...register("amount", {
-              required: "Please enter amount",
-            })}
-          />
-            <Button type="submit" backgroundColor="#00a200" color="white" onClick={onOpen}>
+          <form
+            className="donation-form"
+            onSubmit={handleSubmit(FormSubmitHandler)}
+          >
+            <Input
+              type="number"
+              placeholder="Enter amount of your choice"
+              borderColor="#D0D5FA"
+              {...register("amount", {
+                required: "Please enter amount",
+              })}
+            />
+            <Button
+              type="submit"
+              backgroundColor="#00a200"
+              color="white"
+              onClick={onOpen}
+            >
               Donate Now!
             </Button>
           </form>

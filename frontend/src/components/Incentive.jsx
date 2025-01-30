@@ -38,9 +38,9 @@ export default function Listings() {
   useEffect(() => {
     setTimeout(() => {
       axios
-        .get("https://waste-x-gamma.vercel.app/society")
+        .get("http://localhost:3000/society")
         .then((data) => {
-          console.log(data.data);
+          // console.log(data.data);
           setPosts(data.data);
         })
         .catch((err) => {

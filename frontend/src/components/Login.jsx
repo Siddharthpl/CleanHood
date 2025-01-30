@@ -27,7 +27,7 @@ export default function Login() {
     const id = toast.loading("Logging In...");
     setTimeout(() => {
       axios
-        .post("https://waste-x-gamma.vercel.app/user/login", formData)
+        .post("http://localhost:3000/user/login", formData)
         .then((result) => {
           // console.log("ADDED");
           setCookie("username", formData.username, 365);
@@ -108,12 +108,8 @@ export default function Login() {
               minLength: {
                 value: 8,
                 message: "Minimum 8 characters required",
-              },
-              pattern: {
-                value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/,
-                message:
-                "Password Not Valid (Use Special Characters & Numbers)",
-              },
+              }
+             
             })}
             />
           <p className="err">{errors.password?.message}</p>

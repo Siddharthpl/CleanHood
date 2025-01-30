@@ -12,7 +12,7 @@ const complaintControl = express.Router();
 const paymentControl = express.Router();
 const servicesControl = express.Router();
 const citiesControl = express.Router();
-const postsControl = express.Router()
+const postsControl = express.Router();
 
 // for parsing more entities so that image can be converted to Base64 format
 const bodyParser = require("body-parser");
@@ -64,8 +64,8 @@ servicesControl.use(express.json());
 societyControl.use(express.json());
 complaintControl.use(express.json());
 paymentControl.use(express.json());
-citiesControl.use(express.json())
-postsControl.use(express.json())
+citiesControl.use(express.json());
+postsControl.use(express.json());
 
 // functions for verifications
 const validateUser = (req, res, next) => {
@@ -95,14 +95,14 @@ const validateComplaint = (req, res, next) => {
   }
 };
 
- const validatePost = (req,res,next)=>{
-  let {error} = postValidation.validate(req.body)
+const validatePost = (req, res, next) => {
+  let { error } = postValidation.validate(req.body);
   if (error) {
     throw new ExpressError(400, `joi, ${error}`);
   } else {
     next();
   }
-}
+};
 
 const jwtVerify = (req, res, next) => {
   try {
@@ -129,7 +129,7 @@ userControl.post(
   wrapAsync(async (req, res) => {
     let { username, name, password, address, society, contact } = req.body;
     let checkSociety = await Society.find({ name: society });
-    if (checkSociety.length == 0) {
+    if (checkSociety.length === 0) {
       throw new ExpressError(404, "Society not Found!");
     }
     let insertData = new User({ username, name, password, address, contact });
@@ -149,25 +149,25 @@ userControl.post(
     let MailGenerator = new mailgen({
       theme: "salted",
       product: {
-        name: "WasteX",
+        name: "CleanHood",
         logo: "https://freepngimg.com/save/27098-welcome-clipart/1584x698",
-        link: "https://wastex-x.vercel.app/",
+        link: "https://.vercel.app/",
       },
     });
 
     let response = {
       body: {
-        title: "Welcome to WasteX",
+        title: "Welcome to X",
         name: "User",
-        intro: "Your account has been successfully created on WasteX! :)",
-        signature: "Sincerely, Team WasteX",
+        intro: "Your account has been successfully created on CleanHood! :)",
+        signature: "Sincerely, Team CleanHood",
         action: [
           {
-            instructions: "Click here to go to WasteX",
+            instructions: "Click here to go to CleanHood",
             button: {
               color: "#22BC66",
-              text: "WasteX",
-              link: "https://wastex.vercel.app/",
+              text: "CleanHood",
+              link: "https://CleanHood.vercel.app/",
             },
           },
         ],
@@ -179,7 +179,7 @@ userControl.post(
     let message = {
       from: process.env.EMAIL,
       to: contact.email,
-      subject: "Welcome to WasteX!",
+      subject: "Welcome to CleanHood!",
       html: mail,
     };
 
@@ -322,8 +322,12 @@ complaintControl.post(
     res.send("Success!");
   })
 );
+
+
+
+
 complaintControl.use((err, req, res, next) => {
-  console.log(err)
+  console.log(err);
   let { status = 500, message = "Some error occured..!" } = err;
   res.status(status).send(err.message);
 });
@@ -356,8 +360,8 @@ paymentControl.get("/getkey", (req, res) => {
 citiesControl.get(
   "/",
   wrapAsync(async (req, res) => {
-    let result = await Cities.find()
-    res.send(result)
+    let result = await Cities.find();
+    res.send(result);
   })
 );
 
@@ -366,19 +370,26 @@ citiesControl.use((err, req, res, next) => {
   res.status(status).send(err.message);
 });
 
-postsControl.get("/",wrapAsync(async(req,res)=>{
-  let result = await Post.find()
-  if(result.length == 0){
-    throw new ExpressError(404,"no posts found")
-  }
-  res.send(result)
-}))
+postsControl.get(
+  "/",
+  wrapAsync(async (req, res) => {
+    let result = await Post.find();
+    if (result.length == 0) {
+      throw new ExpressError(404, "no posts found");
+    }
+    res.send(result);
+  })
+);
 
-postsControl.post("/",validatePost,wrapAsync(async(req,res)=>{
-  let newPost = new Post(req.body)
-  await newPost.save()
-  res.send("added")
-}))
+postsControl.post(
+  "/",
+  validatePost,
+  wrapAsync(async (req, res) => {
+    let newPost = new Post(req.body);
+    await newPost.save();
+    res.send("added");
+  })
+);
 
 postsControl.use((err, req, res, next) => {
   let { status = 500, message = "Some error occured..!" } = err;
@@ -392,5 +403,5 @@ module.exports = {
   paymentControl,
   complaintControl,
   citiesControl,
-  postsControl
+  postsControl,
 };

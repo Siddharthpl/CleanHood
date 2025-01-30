@@ -22,10 +22,10 @@ function Complaints() {
   let randomLoader = Math.floor(Math.random() * 8);
   useEffect(() => {
     axios
-      .get(`https://waste-x-gamma.vercel.app/complaint`)
+      .get("http://localhost:3000/complaint")
       .then((res) => {
         setData(res.data);
-        // console.log(res.data);
+        //console.log(res.data);
       })
       .catch((err) => {
         if (err.response.status == 404) {

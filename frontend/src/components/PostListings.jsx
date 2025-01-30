@@ -22,10 +22,10 @@ function PostListings() {
 
   useEffect(() => {
     axios
-      .get(`https://waste-x-gamma.vercel.app/posts`)
+      .get(`http://localhost:3000/posts`)
       .then((res) => {
         setData(res.data);
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch((err) => {
         if (err.response.status === 404) {

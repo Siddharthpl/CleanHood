@@ -19,13 +19,13 @@ export default function SocietyRegister() {
   } = useForm();
   // console.log(watch())
   const FormSubmitHandler = (formData) => {
-    console.log(formData);
+    // console.log(formData);
     const id = toast.loading("Adding post..");
     setTimeout(() => {
       axios
-        .post("https://waste-x-gamma.vercel.app/posts", formData)
+        .post("http://localhost:3000/posts", formData)
         .then((result) => {
-          console.log("ADDED");
+          // console.log("ADDED");
           toast.update(id, {
             render: "Post added!",
             type: "success",

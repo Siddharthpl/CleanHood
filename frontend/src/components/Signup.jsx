@@ -41,14 +41,14 @@ export default function Signup() {
     formState: { errors },
   } = useForm();
   useEffect(() => {
-    axios.get("https://waste-x-gamma.vercel.app/society").then((res) => {
+    axios.get("http://localhost:3000/society").then((res) => {
       // console.log(res.data)
       setSociety(res.data);
     });
   }, []);
   const FormSubmitHandler1 = (formData) => {
     setSubmit1(true);
-    console.log(formData);
+    // console.log(formData);
     setSignupData((prev) => ({
       ...prev,
       name: formData.name,
@@ -57,7 +57,7 @@ export default function Signup() {
     }));
   };
   const FormSubmitHandler2 = (formData) => {
-    console.log(formData);
+    // console.log(formData);
     setSubmit2(true);
     setSignupData((prev) => ({
       ...prev,
@@ -70,10 +70,11 @@ export default function Signup() {
   // console.log(watch())
   const { login, setLogin } = useContext(AppContext);
   const finalSubmit = () => {
+    // console.log("Submitting data: ", signupData);
     const id = toast.loading("Signing Up...");
     setTimeout(() => {
       axios
-        .post("https://waste-x-gamma.vercel.app/user/signup", signupData)
+        .post("http://localhost:3000/user/signup", signupData)
         .then((result) => {
           // console.log(result.data);
           setCookie("username", signupData.username, 365);
@@ -106,8 +107,7 @@ export default function Signup() {
     switch (count) {
       case 1:
         return (
-
-          <div className="form-parent" style={{flex:"1"}}>
+          <div className="form-parent" style={{ flex: "1" }}>
             <ToastContainer />
             {/* <br /> */}
             <div className="form-img-parent flex">
@@ -171,14 +171,13 @@ export default function Signup() {
                           value: 8,
                           message: "Minimum 8 characters required",
                         },
-                        pattern: {
-                          value:
-                            /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/,
-                          message:
-                            "Password Not Valid (Use Special Characters & Numbers)",
-                        },
+                        
                       })}
                     />
+
+
+                    
+
                     <p className="err">{errors.password?.message}</p>
                   </FormControl>
 
@@ -359,5 +358,5 @@ export default function Signup() {
     }
   };
 
-  return (<>{pageRender()}</>)
+  return <>{pageRender()}</>;
 }
