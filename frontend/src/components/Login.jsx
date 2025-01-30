@@ -27,7 +27,7 @@ export default function Login() {
     const id = toast.loading("Logging In...");
     setTimeout(() => {
       axios
-        .post("https://cleanhood.onrender.com", formData)
+        .post("https://cleanhood.onrender.com/user/login", formData)
         .then((result) => {
           // console.log("ADDED");
           setCookie("username", formData.username, 365);

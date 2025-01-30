@@ -22,7 +22,7 @@ function PostListings() {
 
   useEffect(() => {
     axios
-      .get(`https://cleanhood.onrender.com`)
+      .get(`https://cleanhood.onrender.com/posts`)
       .then((res) => {
         setData(res.data);
         // console.log(res.data);
