@@ -151,7 +151,7 @@ userControl.post(
       product: {
         name: "CleanHood",
         logo: "https://freepngimg.com/save/27098-welcome-clipart/1584x698",
-        link: "https://.vercel.app/",
+        link: "https://cleanhood-frontend.onrender.com/",
       },
     });
 
@@ -167,7 +167,7 @@ userControl.post(
             button: {
               color: "#22BC66",
               text: "CleanHood",
-              link: "https://CleanHood.vercel.app/",
+              link: "https://cleanhood-frontend.onrender.com/",
             },
           },
         ],

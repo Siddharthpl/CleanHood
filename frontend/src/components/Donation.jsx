@@ -70,7 +70,7 @@ export default function Donation() {
           description: "Donation",
           image: "",
           order_id: res.data.order.id,
-          callback_url: "https://CleanHood-x.vercel.app/",
+          callback_url: "https://cleanhood-frontend.onrender.com/",
           prefill: {
             name: "",
             email: "",

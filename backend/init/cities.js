@@ -52,7 +52,7 @@ async function main() {
       }),
       new Cities({
         cityName: "Jaipur",
-        supportEmail: "mayor@jaipurmc.org",
+        supportEmail: "siddharthpundir73@gmail.com",
       }),
     ];
 
